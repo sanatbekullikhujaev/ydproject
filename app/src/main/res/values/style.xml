@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="CustomAlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/dialog_radius</item>
+    </style>
+
+
+
+    <style name="BottomSheetDialogTheme" parent="BaseBottomSheetDialog" />
+    <style name="BaseBottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="bottomSheetStyle">@style/BottomSheet</item>
+    </style>
+
+    <style name="BottomSheet" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/shape_rounded_dialog</item>
+    </style>
+    <!-- Base application theme. -->
+    <style name="AppTheme1" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="progressBarBlue" parent="@style/Theme.AppCompat">
+        <item name="colorAccent">#DFDCDC</item>
+        <item name="android:textColorSecondary">#C9C6C6</item>
+    </style>
+
+    <style name="MyTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:actionMenuTextColor">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.ActionBar.Transparent" parent="AppTheme.NoActionBar">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="windowActionBarOverlay">true</item>
+        <!--<item name="android:statusBarColor" tools:ignore="NewApi">@android:color/transparent</item>-->
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="AppTheme.NoActionBar.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <style name="AppTheme.NoActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+
+    <!--TEXT VIEW'S styles-->
+
+    <style name="basic_text_view">
+
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">sans-serif-regular</item>
+        <item name="android:textColor">@color/text_view_basic_text_color</item>
+        <item name="android:textSize">@dimen/text_view_text_size</item>
+
+    </style>
+
+
+    <!--EDIT TEXT'S styles-->
+
+    <style name="basic_edit_text" >
+        <item name="android:textCursorDrawable">@color/white</item>
+        <item name="android:drawablePadding">16dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/edit_text_color</item>
+        <item name="android:textSize">@dimen/edit_text_text_size</item>
+        <item name="android:textColorHint">@color/edit_text_color</item>
+        <item name="android:textColorHighlight">@color/edit_text_color</item>
+    </style>
+
+
+    <!--TEXT INPUT LAYOUT'S styles-->
+
+    <style name="basic_text_input_layout"
+        parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="android:textColorHint">@color/white</item>
+        <item name="android:textColorHighlight">@color/white</item>
+        <item name="hintTextColor">@color/white</item>
+        <item name="errorTextColor">@color/color_red</item>
+        <item name="boxStrokeColor">@color/input_color</item>
+        <item name="boxStrokeWidth">2dp</item>
+        <item name="passwordToggleTint">@color/white</item>
+    </style>
+
+
+
+    <style name="basic_text_input_layout_text_theme_white" parent="@android:style/TextAppearance">
+        <item name="android:textSize">@dimen/edit_text_text_size</item>
+        <item name="colorAccent">@android:color/white</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlActivated">@color/white</item>
+        <item name="colorControlHighlight">@color/white</item>
+
+    </style>
+
+
+    <!--BUTTON'S styles-->
+
+    <style name="basic_button">
+        <item name="android:layout_marginTop">12dp</item>
+        <item name="android:layout_marginBottom">12dp</item>
+        <item name="android:padding">3dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:textColor">@color/button_text_color</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">sans-serif-regular</item>
+
+    </style>
+
+
+    <style name="enter_button">
+        <item name="android:layout_marginTop">12dp</item>
+        <item name="android:layout_marginBottom">12dp</item>
+        <item name="android:padding">3dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:textColor">@color/button_text_color</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">sans-serif-regular</item>
+
+    </style>
+
+    <style name="reg_button">
+        <item name="android:layout_marginTop">12dp</item>
+        <item name="android:layout_marginBottom">12dp</item>
+        <item name="android:padding">3dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:textColor">@color/button_text_color</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+    <!--IMAGE VIEW'S styles-->
+
+    <style name="basic_image_view">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+    <style name="basic_linear_progress_theme" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:progressBackgroundTint" tools:ignore="NewApi">@color/colorAccent_70</item>
+    </style>
+    <style name="AppTheme.NoActionBar.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!--        <item name="android:windowTranslucentStatus">true</item>-->
+    </style>
+
+
+    <style name="appbar_title" >
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="progressbarStyle" parent="Widget.AppCompat.ProgressBar">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:indeterminate">true</item>
+        <item name="android:indeterminateTint" tools:targetApi="lollipop">@color/white</item>
+    </style>
+
+
+</resources>

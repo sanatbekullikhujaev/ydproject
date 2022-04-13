@@ -1,0 +1,70 @@
+<resources>
+    <string name="app_name">Yangi davr</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="login">Foydalanuvchi nomi(Login)</string>
+    <string name="password">Parol</string>
+    <string name="register">Ro\'yxatdan o\'tish</string>
+    <string name="repeat_password">Parolni tasdiqlang</string>
+    <string name="phone_number">Telefon raqamingiz</string>
+    <string name="fio">Familya Ism</string>
+    <string name="about_us">Biz haqimizda</string>
+    <string name="help">Yordam</string>
+    <string name="help2">Y</string>
+    <string name="share">Jo\'natish</string>
+    <string name="exit">Chiqish</string>
+    <string name="hi">Assalomu aleykum</string>
+    <string name="unknown">Noma\'lum</string>
+    <string name="incorrect_data">Bunday login ro\'yxatdan o\'tgan. Login sizning dasturdagi nomingizdir. Boshqalar foydalanmagan login kiriting</string>
+    <string name="incorrect2_data">Noto\'g\'ri ma\'lumotlar kiritilgan</string>
+    <string name="items_not_found">Ro\'yxatlar topilmadi</string>
+    <string name="videos">Videolar</string>
+    <string name="audios">Audiolar</string>
+    <string name="item_not_found">Ro\'yxat topilmadi</string>
+    <string name="main">Asosiy</string>
+    <string name="registration">Ro\'yxatga olish</string>
+    <string name="video_not_found">Video topilmadi</string>
+    <string name="prev">Old</string>
+    <string name="next">Keyin</string>
+    <string name="share_using">Jo\'natish…</string>
+    <string name="settings">Sozlamalar</string>
+    <string name="audio_not_found">Audio topilmadi</string>
+    <string name="conrifm_password">Conrifm password</string>
+    <string name="change_user_data">Ma\'lumotlar o\'zgartirldi</string>
+    <string name="change">Yangilash</string>
+    <string name="format">%02d:%02d</string>
+    <string name="no_internet">Internet mavjud emas!</string>
+    <string name="_00_00">00:00</string>
+    <string name="video">Video</string>
+    <string name="video_url_not_found">Video url not found</string>
+    <string name="remember_me">Eslab qolish</string>
+    <string name="bizni_youtubeda_kuzating">bizni youtubeda kuzating</string>
+    <string name="administrator_bilan_bog_lanish">Administrator bilan bog\'lanish</string>
+    <string name="parolni_ko_rsatish">parolni ko\'rsatish</string>
+
+    <string name="title_activity_helpersanat">helpersanat</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="textview">TextView</string>
+    <string name="qo_llanma">Qo\'llanma</string>
+    <string name="play">play</string>
+    <string name="help23">TELEGRAM YORDAM</string>
+    <string name="button_signin_text">Kirish</string>
+
+    <string name="forgot_password"><u>Parol esdan chiqdimi?</u></string>
+    <string name="signup">Ro\'yxatdan o\'tish</string>
+    <string name="reg_pass_2">Parolni takrorlang</string>
+    <string name="reg_pass_1">Parol o\'ylab toping</string>
+    <string name="parol_o_ylab_toping">Parol o`ylab toping</string>
+    <string name="tasdiqlash">Tasdiqlash</string>
+
+</resources>

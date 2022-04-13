@@ -1,0 +1,16 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@android:id/background"
+        android:height="@dimen/_4sdp"
+        android:drawable="@drawable/color_grey_radius_8dp"
+        android:gravity="center" />
+    <item
+        android:id="@android:id/progress"
+        android:height="@dimen/_4sdp"
+        android:gravity="center">
+        <clip android:drawable="@drawable/color_orange_radius_8dp" />
+    </item>
+
+</layer-list>

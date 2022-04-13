@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/rl"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_toLeftOf="@id/tvdate"
+        android:text="Ullixo'jayev San'atbek"
+        android:textColor="#030303" />
+    <TextView
+        android:id="@+id/tvdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="12dp"
+        android:textColor="#373737"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginBottom="8sp"
+        android:text="26.02.2021 14:01" />
+    <TextView
+        android:id="@+id/tvMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvName"
+        android:layout_gravity="center"
+        android:textColor="#373737"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_40sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:text="Assalomu laykum bu video darsdan ko'p narsalarni o'rganib oldim juda yaxsh ekan" />
+    <TextView
+        android:id="@+id/tv_commit_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvMessage"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:text="Fikrlarni ko'rish"
+        android:textColor="#2196F3"
+        />
+    <TextView
+        android:id="@+id/tv_answer_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvMessage"
+        android:layout_gravity="center"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:text="0 ta fikr"
+        android:textColor="#2196F3"
+        />
+
+
+    <View
+        android:foreground="#ccc"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_below="@id/tv_commit_count"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"/>
+</RelativeLayout>

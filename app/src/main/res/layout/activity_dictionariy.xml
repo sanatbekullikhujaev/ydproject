@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.DictionaryActivity">
+
+    <ProgressBar
+        android:id="@+id/pb_logon"
+        style="@style/progressbarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:indeterminateOnly="true"
+        android:indeterminateTint="@color/colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/txtRu"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_70sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:gravity="center"
+        android:background="@drawable/dic_bg"
+        android:fontFamily="@font/inter_regular"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="@dimen/_18sdp"
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
+    <ImageView
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        app:layout_constraintTop_toBottomOf="@id/txtRu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/ic_arrow_downward"/>
+
+    <TextView
+        android:id="@+id/txtUz"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_70sdp"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:gravity="center"
+        android:background="@drawable/dic_bg"
+        android:fontFamily="@font/inter_regular"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="@dimen/_18sdp"
+        app:layout_constraintTop_toBottomOf="@id/txtRu" />
+
+    <TextView
+        android:id="@+id/tvAudioStartTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_00_00"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/size_0dp"
+        app:layout_constraintTop_toBottomOf="@id/txtUz"
+        />
+
+    <TextView
+        android:id="@+id/tvAudioEndTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_00_00"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_18sdp"
+        app:layout_constraintTop_toBottomOf="@id/txtUz"
+        />
+    <SeekBar
+        android:id="@+id/seekbar_audio"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:visibility="invisible"
+        android:progress="0"
+        app:layout_constraintEnd_toStartOf="@+id/tvAudioEndTime"
+        app:layout_constraintStart_toEndOf="@+id/tvAudioStartTime"
+        app:layout_constraintBottom_toBottomOf="@+id/tvAudioStartTime"
+        app:layout_constraintTop_toTopOf="@+id/tvAudioStartTime"
+        android:theme="@style/progressBarBlue"
+        tools:ignore="RtlHardcoded" />
+
+    <ImageView
+        android:id="@+id/iVPlayPause"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_play_blue"
+        app:layout_constraintStart_toStartOf="@+id/seekbar_audio"
+        app:layout_constraintEnd_toEndOf="@+id/seekbar_audio"
+        app:layout_constraintTop_toBottomOf="@+id/seekbar_audio" />
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:backgroundTint="#1E88E5"
+        android:enabled="false"
+        android:text="Orqaga"
+        android:layout_marginStart="@dimen/_20sdp"
+        app:layout_constraintEnd_toStartOf="@+id/iVPlayPause"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iVPlayPause" />
+
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:backgroundTint="#1E88E5"
+        android:text="Oldinga"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="@dimen/_20sdp"
+        app:layout_constraintStart_toEndOf="@+id/iVPlayPause"
+        app:layout_constraintTop_toBottomOf="@id/iVPlayPause" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
