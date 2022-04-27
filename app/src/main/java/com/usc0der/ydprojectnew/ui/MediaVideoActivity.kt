@@ -2,11 +2,11 @@ package com.usc0der.ydprojectnew.ui
 
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -38,11 +38,14 @@ class MediaVideoActivity : AppCompatActivity(), VideosAndAudiosAdapter.OnItemCli
         _binding = ActivityMediaVideoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.progressbar.visibility = View.GONE
-       binding.tvTitle.text =  intent.extras?.getString("type")
+        binding.progressbar.isVisible = false
+        binding.imgOnBack.setOnClickListener {
+            finish()
+        }
+        val status = intent.extras?.getBoolean("type")
         NetworkLiveData(this).observe(this) {
             if (it) {
-                setRecycler()
+                setRecycler(status!!)
             } else {
                 Toast.makeText(this, "Internet aloqasi yo'q", Toast.LENGTH_SHORT).show()
             }
@@ -54,27 +57,52 @@ class MediaVideoActivity : AppCompatActivity(), VideosAndAudiosAdapter.OnItemCli
         _binding = null
     }
 
-    private fun setRecycler() {
-
-        lifecycleScope.launch {
-            viewModel.initVideo(sharePref.getLanguageId())
-            viewModel.videoSateFlow.collect {
-                when (it) {
-                    is UIState.Success -> {
-                        binding.recyclerView.adapter =
-                            VideosAndAudiosAdapter(
-                                it.data,
-                                this@MediaVideoActivity,
-                                this@MediaVideoActivity
-                            )
-                        binding.progressbar.isVisible = false
+    private fun setRecycler(status: Boolean) {
+        if (!status) {
+            lifecycleScope.launch {
+                viewModel.initVideo(sharePref.getLanguageId())
+                viewModel.videoSateFlow.collect {
+                    when (it) {
+                        is UIState.Success -> {
+                            binding.recyclerView.adapter =
+                                VideosAndAudiosAdapter(
+                                    it.data,
+                                    this@MediaVideoActivity,
+                                    this@MediaVideoActivity
+                                )
+                            binding.progressbar.isVisible = false
+                        }
+                        is UIState.Error -> {
+                            showExceptionDialog(it.error)
+                            binding.progressbar.isVisible = false
+                        }
+                        is UIState.Loading -> {
+                            binding.progressbar.isVisible = true
+                        }
                     }
-                    is UIState.Error -> {
-                        showExceptionDialog(it.error)
-                        binding.progressbar.isVisible = false
-                    }
-                    is UIState.Loading -> {
-                        binding.progressbar.isVisible = true
+                }
+            }
+        } else {
+            lifecycleScope.launch {
+                viewModel.initAudio(sharePref.getLanguageId())
+                viewModel.audioSateFlow.collect {
+                    when (it) {
+                        is UIState.Success -> {
+                            binding.recyclerView.adapter =
+                                VideosAndAudiosAdapter(
+                                    it.data,
+                                    this@MediaVideoActivity,
+                                    this@MediaVideoActivity
+                                )
+                            binding.progressbar.isVisible = false
+                        }
+                        is UIState.Error -> {
+                            showExceptionDialog(it.error)
+                            binding.progressbar.isVisible = false
+                        }
+                        is UIState.Loading -> {
+                            binding.progressbar.isVisible = true
+                        }
                     }
                 }
             }

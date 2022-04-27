@@ -21,6 +21,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.snackbar.Snackbar
 
 import com.usc0der.ydprojectnew.adapter.HomeAdapter
 import com.usc0der.ydprojectnew.api.network.ApiClient
@@ -155,14 +156,24 @@ class HomeFragment : Fragment(), HomeAdapter.OnItemClick {
     override fun itemClick(position: Int, id: Int, model: HomeModel) {
         val sharePref = SharePref(requireContext())
         sharePref.setLanguageId(id)
-        if (model.block_audio) {
+        if (model.block_audio && model.block_video) {
             val intent = Intent(requireContext(), MediaActivity::class.java)
-            intent.putExtra("type", "Audio darslar")
+//            intent.putExtra("type", "Audio darslar")
+            startActivity(intent)
+        } else if (!model.block_audio && model.block_video) {
+            val intent = Intent(requireContext(), MediaVideoActivity::class.java)
+            intent.putExtra("type", false)
+            startActivity(intent)
+        } else if (model.block_audio && !model.block_video) {
+            val intent = Intent(requireContext(), MediaVideoActivity::class.java)
+            intent.putExtra("type", true)
             startActivity(intent)
         } else {
-            val intent = Intent(requireContext(), MediaVideoActivity::class.java)
-            intent.putExtra("type", "Video darslar")
-            startActivity(intent)
+            Snackbar.make(
+                requireView(),
+                "Admin tomonidan bloklangan",
+                Snackbar.LENGTH_LONG
+            ).show()
         }
     }
 

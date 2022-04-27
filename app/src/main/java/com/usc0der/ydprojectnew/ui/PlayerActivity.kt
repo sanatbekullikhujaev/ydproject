@@ -332,7 +332,6 @@ class PlayerActivity : AppCompatActivity(), CommentChatFragment.OnItemClick,
                     "Siz pdf o'qiydigan dastur topilmadi",
                     Toast.LENGTH_SHORT
                 ).show()
-                Log.d("TAG", "onclick: ${e.message.toString()}")
                 e.printStackTrace()
             }
         }
@@ -497,6 +496,7 @@ class PlayerActivity : AppCompatActivity(), CommentChatFragment.OnItemClick,
         runnableStatusAudio = false
         runnableStatusVideo = false
         audioMediaPlayer.stop()
+        MediaPlayer.stopPlayer()
         this.finish()
     }
 
@@ -665,14 +665,14 @@ class PlayerActivity : AppCompatActivity(), CommentChatFragment.OnItemClick,
         super.onPause()
         val position = mediaPlayer.exoPlayer?.currentPosition ?: 0
         videoAppDatabase.videoPosition().insert(VideoDbModel(id, position))
-        MediaPlayer.pausePlayer()
+//        MediaPlayer.pausePlayer()
     }
 
     override fun onStop() {
         val position = mediaPlayer.exoPlayer?.currentPosition ?: 0
         videoAppDatabase.videoPosition().insert(VideoDbModel(id, position))
 //        audioMediaPlayer.stop()
-        MediaPlayer.stopPlayer()
+//        MediaPlayer.stopPlayer()
         super.onStop()
     }
 
