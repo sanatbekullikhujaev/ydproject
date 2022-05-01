@@ -81,7 +81,6 @@ class LoginActivity : AppCompatActivity(), SimpleTextWatcher {
                         if (fm.result != null) {
                             sharedPref.device_token = fm.result.toString()
                         }
-                        Log.d("tokenssss", fm.result.toString())
                     }
 
                     lifecycleScope.launchWhenStarted {

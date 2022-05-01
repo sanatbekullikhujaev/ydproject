@@ -18,7 +18,6 @@ import javax.net.ssl.X509TrustManager
 class NetworkHelper {
     private fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
         val httpLoggingInterceptor = HttpLoggingInterceptor(HttpLoggingInterceptor.Logger {
-            Log.w("logger", it)
         })
         httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
         return httpLoggingInterceptor

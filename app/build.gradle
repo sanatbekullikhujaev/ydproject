@@ -112,14 +112,13 @@ dependencies {
 
     implementation 'com.h6ah4i.android.widget.verticalseekbar:verticalseekbar:0.7.0'
 
+//    implementation 'com.google.android.exoplayer:exoplayer:2.14.2'
     implementation 'com.google.android.exoplayer:exoplayer:2.14.2'
     implementation 'com.google.android.exoplayer:exoplayer-core:2.14.2'
     implementation 'com.google.android.exoplayer:exoplayer-dash:2.14.2'
     implementation 'com.google.android.exoplayer:exoplayer-hls:2.14.2'
     implementation 'com.google.android.exoplayer:exoplayer-smoothstreaming:2.14.2'
     implementation 'com.google.android.exoplayer:exoplayer-ui:2.14.2'
-
-    implementation 'com.google.android.exoplayer:exoplayer:2.14.2'
     implementation 'com.github.norulab:android-exoplayer-fullscreen:1.2.1'
 
     implementation 'com.github.mkw8263:MindevPDFViewer:1.0.4'

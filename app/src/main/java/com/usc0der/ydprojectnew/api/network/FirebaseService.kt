@@ -51,7 +51,6 @@ class FirebaseService : FirebaseMessagingService() {
 //        EventBus.getDefault().post(title)
 
 
-        Log.e("AAA","data is: $message")
         val intent = Intent(this, SplashActivity::class.java)
         val requestCode: Int = (0..10).random()
         val pendingIntent = PendingIntent.getActivity(this, requestCode, intent, FLAG_ONE_SHOT)
