@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.usc0der.ydprojectnew.R
+import com.usc0der.ydprojectnew.databinding.ItemSubjectBinding
 import com.usc0der.ydprojectnew.databinding.ItemVideosBinding
 import com.usc0der.ydprojectnew.model.VideosAndAudios
 
@@ -15,7 +16,7 @@ class VideosAndAudiosAdapter(
     var onItemClick: OnItemClick
 ) : RecyclerView.Adapter<VideosAndAudiosAdapter.Vh>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Vh {
-        val binding = ItemVideosBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemSubjectBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return Vh(binding)
     }
 
@@ -34,15 +35,18 @@ class VideosAndAudiosAdapter(
             .into(holder.binding.img)
 
         holder.binding.tvTitle.text = list[position].title.toString()
-        holder.binding.tvWord.text = list[position].content.toString()
+//        holder.binding.tvWord.text = list[position].content.toString()
+        holder.binding.tvView.text = list[position].views.toString() + " marta ko'rildi"
+        holder.binding.tvVideoDuration.text = list[position].video_duration
 
-        holder.binding.cons.setOnClickListener {
+
+        holder.binding.rootLayout.setOnClickListener {
             onItemClick.itemClick(position, list[position].id)
         }
     }
 
     override fun getItemCount(): Int = list.size
-    class Vh(val binding: ItemVideosBinding) : RecyclerView.ViewHolder(binding.root)
+    class Vh(val binding: ItemSubjectBinding) : RecyclerView.ViewHolder(binding.root)
 
     interface OnItemClick {
         fun itemClick(position: Int, id: Int)

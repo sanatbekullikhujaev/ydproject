@@ -114,14 +114,14 @@ class PlayerActivity : AppCompatActivity(), CommentChatFragment.OnItemClick,
             commentChatFragment = CommentChatFragment(this)
             commentChatFragment.show(supportFragmentManager, "TAG")
         }
-        NetworkLiveData(this).observe(this, {
+        NetworkLiveData(this).observe(this) {
             if (it && dataStatus) {
                 initData()
             } else {
                 Snackbar.make(binding.root.rootView, "Internet aloqasi yo'q", Snackbar.LENGTH_LONG)
                     .show()
             }
-        })
+        }
         onclick()
         binding.toolbar.imgBack.setOnClickListener {
             onBackPressed()
@@ -256,6 +256,7 @@ class PlayerActivity : AppCompatActivity(), CommentChatFragment.OnItemClick,
                     isPlayingStatus = false
                 } else {
                     isPlayingStatus = true
+                    runnableStatusAudio = true
                     audioMediaPlayerPlay()
                 }
             } else {
@@ -389,14 +390,13 @@ class PlayerActivity : AppCompatActivity(), CommentChatFragment.OnItemClick,
 
     private lateinit var audioMediaPlayer: android.media.MediaPlayer
     private val handler = Handler()
-    private var runnableStatusAudio = true
+    private var runnableStatusAudio = false
     private var runnableStatusVideo = true
     private fun setAudioProgress() {
         try {
             //get the video duration
             var current_pos = audioMediaPlayer.currentPosition
             val total_duration = audioMediaPlayer.duration
-
             //display video duration
             binding.tvAudioEndTime.text = timeConversion(total_duration.toLong())
             binding.tvAudioStartTime.text = timeConversion(current_pos.toLong())
@@ -435,7 +435,6 @@ class PlayerActivity : AppCompatActivity(), CommentChatFragment.OnItemClick,
             e.printStackTrace()
         }
     }
-
     private fun setVideoProgress() {
         try {
             //get the video duration
@@ -449,9 +448,19 @@ class PlayerActivity : AppCompatActivity(), CommentChatFragment.OnItemClick,
                     try {
                         if (runnableStatusVideo) {
                             if (mediaPlayer.exoPlayer?.isPlaying == false) {
-                                binding.imgVideoPlayAndPause.setImageResource(R.drawable.ic_play_blue)
+                                binding.imgVideoPlayAndPause.setImageDrawable(
+                                    ContextCompat.getDrawable(
+                                        this@PlayerActivity,
+                                        R.drawable.ic_play_blue
+                                    )
+                                )
                             } else {
-                                binding.imgVideoPlayAndPause.setImageResource(R.drawable.ic_pause_blue)
+                                binding.imgVideoPlayAndPause.setImageDrawable(
+                                    ContextCompat.getDrawable(
+                                        this@PlayerActivity,
+                                        R.drawable.ic_pause_blue
+                                    )
+                                )
                             }
                             total_duration = mediaPlayer.exoPlayer?.duration
                             current_pos = mediaPlayer.exoPlayer?.currentPosition
@@ -490,17 +499,32 @@ class PlayerActivity : AppCompatActivity(), CommentChatFragment.OnItemClick,
     }
 
     override fun onBackPressed() {
-        super.onBackPressed()
-        val position = mediaPlayer.exoPlayer?.currentPosition ?: 0
-        videoAppDatabase.videoPosition().insert(VideoDbModel(id, position))
+        if(videoOrintration){
+            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_VISIBLE
+            supportActionBar?.show()
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+            normalScreenButton!!.setImageDrawable(
+                ContextCompat.getDrawable(
+                    this,
+                    R.drawable.ic_fullscreen_close
+                )
+            )
+            binding.videoView.isVisible = true
+            binding.videoViewLandscape.isVisible = false
+            PlayerView.switchTargetView(
+                mediaPlayer.exoPlayer!!,
+                binding.videoViewLandscape,
+                binding.videoView
+            )
+        }
+        else{
         runnableStatusAudio = false
         runnableStatusVideo = false
         audioMediaPlayer.stop()
         MediaPlayer.stopPlayer()
         this.finish()
+        }
     }
-
-
     fun timeConversion(value: Long): String {
         val dur = value
         val hrs = dur / 3600000
@@ -837,8 +861,8 @@ class PlayerActivity : AppCompatActivity(), CommentChatFragment.OnItemClick,
             playerView.player = mediaPlayer.exoPlayer!!
         }
     }
-
     fun portrait() {
+        videoOrintration = false
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_VISIBLE
         supportActionBar?.show()
 //        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
@@ -848,8 +872,6 @@ class PlayerActivity : AppCompatActivity(), CommentChatFragment.OnItemClick,
                 R.drawable.ic_fullscreen_close
             )
         )
-//        binding.videoView.visibility = View.VISIBLE
-//        playerViewFullscreen!!.visibility = View.GONE
         binding.rlPortrait.isVisible = true
         binding.rlLandscape.isVisible = false
         PlayerView.switchTargetView(
@@ -858,8 +880,9 @@ class PlayerActivity : AppCompatActivity(), CommentChatFragment.OnItemClick,
             binding.videoView
         )
     }
-
+    private var videoOrintration  = false
     fun landscape() {
+        videoOrintration = true
         window.decorView.systemUiVisibility =
             (View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION)
         supportActionBar?.hide()

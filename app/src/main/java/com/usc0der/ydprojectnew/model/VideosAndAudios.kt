@@ -8,5 +8,7 @@ data class VideosAndAudios(
     var image_file: Any,
     var next_id: Any,
     var title: Any,
-    var error_message:String,
+    var views: Int,
+    var video_duration: String,
+    var error_message: String,
 )

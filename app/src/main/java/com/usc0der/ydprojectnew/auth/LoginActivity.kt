@@ -68,13 +68,14 @@ class LoginActivity : AppCompatActivity(), SimpleTextWatcher {
     @SuppressLint("HardwareIds")
     private fun setObserve() {
         binding.btnLoginEnter.setOnClickListener {
-            NetworkLiveData(this).observe(this, {
+            NetworkLiveData(this).observe(this) {
 
                 if (it) {
                     binding.pbLogon.visibility = View.VISIBLE
                     hideShowView(false)
 
-                    val androidId = Settings.Secure.getString(contentResolver, Settings.Secure.ANDROID_ID)?:""
+                    val androidId =
+                        Settings.Secure.getString(contentResolver, Settings.Secure.ANDROID_ID) ?: ""
 
                     FirebaseMessaging.getInstance().token.addOnCompleteListener { fm ->
                         if (fm.result != null) {
@@ -87,7 +88,7 @@ class LoginActivity : AppCompatActivity(), SimpleTextWatcher {
                         val login = LoginRequest(
                             binding.etLoginLogina.text.toString(),
                             binding.etPasswordLoginac.text.toString(),
-                            "$androidId 20",
+                            "$androidId 21",
                             sharedPref.device_token
 
                         )
@@ -138,7 +139,7 @@ class LoginActivity : AppCompatActivity(), SimpleTextWatcher {
                 } else {
                     Toast.makeText(this, "Internet aloqasi yo'q", Toast.LENGTH_SHORT).show()
                 }
-            })
+            }
         }
     }
     private fun initView() {

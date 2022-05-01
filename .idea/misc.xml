@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/drawable/background_circular.xml" value="0.1245" />
+        <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/drawable/background_tv_color_black.xml" value="0.1245" />
         <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/layout/activity_media.xml" value="0.2" />
         <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/layout/activity_media_video.xml" value="0.25" />
         <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/layout/activity_player.xml" value="0.2" />
         <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/layout/fragment_videos.xml" value="0.15534420289855072" />
+        <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/layout/item_subject.xml" value="0.33" />
       </map>
     </option>
   </component>

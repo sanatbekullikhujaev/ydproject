@@ -6,7 +6,7 @@ import com.usc0der.ydprojectnew.api.network.ApiHelper
 import com.usc0der.ydprojectnew.api.repository.SettingsRepository
 
 class SettingsViewModelFactory (private val apiHelper: ApiHelper) : ViewModelProvider.Factory {
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(SettingsViewModel::class.java)) {
             return SettingsViewModel(SettingsRepository(apiHelper)) as T
         }

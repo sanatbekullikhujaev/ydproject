@@ -175,7 +175,7 @@ class RegistrationActivity : AppCompatActivity() {
                 binding.etPasswordLoginac.text.toString(),
                 "99999",
                 "User",
-                "$deviceId 20"
+                "$deviceId 21"
             )
             viewModel.reg(RegisterForm(reg))
             viewModel.regState.collect {
