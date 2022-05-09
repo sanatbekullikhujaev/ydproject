@@ -1,5 +1,6 @@
 package com.usc0der.ydprojectnew.ui
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.res.Configuration
@@ -21,7 +22,10 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
+import androidx.core.view.children
+import androidx.core.view.get
 import androidx.core.view.isVisible
+import androidx.core.view.size
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.downloader.OnDownloadListener
@@ -29,6 +33,7 @@ import com.downloader.PRDownloader
 import com.google.android.exoplayer2.ui.AspectRatioFrameLayout
 import com.google.android.exoplayer2.ui.PlayerView
 import com.google.android.material.snackbar.Snackbar
+import com.jakewharton.rxbinding4.view.scrollChangeEvents
 import com.norulab.exofullscreen.MediaPlayer
 import com.norulab.exofullscreen.setSource
 import com.usc0der.ydprojectnew.room.AppDatabase
@@ -52,6 +57,7 @@ import com.usc0der.ydprojectnew.utils.SharedPref
 import kotlinx.coroutines.flow.collect
 import com.usc0der.ydprojectnew.utils.NetworkLiveData
 import com.usc0der.ydprojectnew.R
+import kotlinx.android.synthetic.main.activity_player.*
 import okhttp3.MultipartBody
 import java.io.File
 
@@ -84,7 +90,7 @@ class PlayerActivity : AppCompatActivity(), CommentChatFragment.OnItemClick,
         window.setFlags(
             WindowManager.LayoutParams.FLAG_SECURE,
             WindowManager.LayoutParams.FLAG_SECURE
-        );
+        )
         setContentView(binding.root)
         audioManager = getSystemService(AUDIO_SERVICE) as AudioManager
         key = intent.getStringExtra("key").toString()
@@ -163,7 +169,7 @@ class PlayerActivity : AppCompatActivity(), CommentChatFragment.OnItemClick,
             if (audioMediaPlayer.isPlaying) {
                 audioMediaPlayer.pause()
             }
-            setVideoProgress()
+                setVideoProgress()
             binding.videoView.setShowNextButton(false)
             binding.videoView.setShowPreviousButton(false)
             imgAudioTimer.start()
@@ -245,7 +251,6 @@ class PlayerActivity : AppCompatActivity(), CommentChatFragment.OnItemClick,
                 volumeControlLandscapeTimer.start()
             }
         })
-
         /// language audio
         audioMediaPlayer = android.media.MediaPlayer()
 
@@ -254,10 +259,12 @@ class PlayerActivity : AppCompatActivity(), CommentChatFragment.OnItemClick,
                 if (audioMediaPlayer.isPlaying) {
                     audioMediaPlayerPause()
                     isPlayingStatus = false
+                    runnableStatusAudio = false
                 } else {
                     isPlayingStatus = true
                     runnableStatusAudio = true
                     audioMediaPlayerPlay()
+                    setAudioProgress()
                 }
             } else {
                 Snackbar.make(binding.root.rootView, "Audio fayl topilmadi", Snackbar.LENGTH_LONG)
@@ -279,8 +286,6 @@ class PlayerActivity : AppCompatActivity(), CommentChatFragment.OnItemClick,
             }
 
         })
-
-
 
         seekbarVideo.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
@@ -392,6 +397,41 @@ class PlayerActivity : AppCompatActivity(), CommentChatFragment.OnItemClick,
     private val handler = Handler()
     private var runnableStatusAudio = false
     private var runnableStatusVideo = true
+    private var step = 0
+    private var currentPositon = 0
+    private var runStatus = false
+
+    @SuppressLint("NewApi")
+    private fun setAutoScroll() {
+//        binding.nested.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
+//            runStatus = scrollY >= oldScrollY
+////                Toast.makeText(this, "$runStatus $scrollY $oldScrollY", Toast.LENGTH_SHORT).show()
+//        }
+//        var total_duration = audioMediaPlayer.currentPosition
+//        val totalSekund = audioMediaPlayer.duration / 1000
+//        val runnable = object : Runnable {
+//            override fun run() {
+//                if (runStatus) {
+//                    if (!audioMediaPlayer.isPlaying) {
+//                        runStatus = false
+//                        nested.smoothScrollTo(0, 0)
+//                    }
+//                    binding.apply {
+//                        step = nested.getChildAt(0).height / totalSekund
+//                        currentPositon = step*audioMediaPlayer.currentPosition/1000
+//                        Log.d(TAG, "run: $step $currentPositon")
+//                        nested.smoothScrollTo(
+//                            0,
+//                            currentPositon
+//                        )
+//                    }
+//                    handler.postDelayed(this, 1000)
+//                }
+//            }
+//        }
+//        handler.postDelayed(runnable, 1000)
+    }
+
     private fun setAudioProgress() {
         try {
             //get the video duration
@@ -435,6 +475,7 @@ class PlayerActivity : AppCompatActivity(), CommentChatFragment.OnItemClick,
             e.printStackTrace()
         }
     }
+
     private fun setVideoProgress() {
         try {
             //get the video duration
@@ -455,6 +496,9 @@ class PlayerActivity : AppCompatActivity(), CommentChatFragment.OnItemClick,
                                     )
                                 )
                             } else {
+                                if(audioMediaPlayer.isPlaying){
+                                    audioMediaPlayerPause()
+                                }
                                 binding.imgVideoPlayAndPause.setImageDrawable(
                                     ContextCompat.getDrawable(
                                         this@PlayerActivity,
@@ -470,7 +514,6 @@ class PlayerActivity : AppCompatActivity(), CommentChatFragment.OnItemClick,
                             binding.seekbarVideo.max = total_duration!!.toInt()
                             binding.seekbarVideo.progress = current_pos!!.toInt()
                             handler.postDelayed(this, 1000)
-
                         }
                     } catch (ed: IllegalStateException) {
                         ed.printStackTrace()
@@ -499,7 +542,7 @@ class PlayerActivity : AppCompatActivity(), CommentChatFragment.OnItemClick,
     }
 
     override fun onBackPressed() {
-        if(videoOrintration){
+        if (videoOrintration) {
             window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_VISIBLE
             supportActionBar?.show()
             requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
@@ -516,15 +559,17 @@ class PlayerActivity : AppCompatActivity(), CommentChatFragment.OnItemClick,
                 binding.videoViewLandscape,
                 binding.videoView
             )
-        }
-        else{
-        runnableStatusAudio = false
-        runnableStatusVideo = false
-        audioMediaPlayer.stop()
-        MediaPlayer.stopPlayer()
-        this.finish()
+        } else {
+            setAutoScroll()
+            runStatus = false
+            runnableStatusAudio = false
+            runnableStatusVideo = false
+            audioMediaPlayer.stop()
+            MediaPlayer.stopPlayer()
+            this.finish()
         }
     }
+
     fun timeConversion(value: Long): String {
         val dur = value
         val hrs = dur / 3600000
@@ -861,6 +906,7 @@ class PlayerActivity : AppCompatActivity(), CommentChatFragment.OnItemClick,
             playerView.player = mediaPlayer.exoPlayer!!
         }
     }
+
     fun portrait() {
         videoOrintration = false
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_VISIBLE
@@ -880,7 +926,8 @@ class PlayerActivity : AppCompatActivity(), CommentChatFragment.OnItemClick,
             binding.videoView
         )
     }
-    private var videoOrintration  = false
+
+    private var videoOrintration = false
     fun landscape() {
         videoOrintration = true
         window.decorView.systemUiVisibility =

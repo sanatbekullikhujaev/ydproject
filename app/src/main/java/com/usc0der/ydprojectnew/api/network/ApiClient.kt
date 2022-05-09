@@ -4,6 +4,7 @@ import android.content.Context
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.google.gson.GsonBuilder
 import com.usc0der.ydprojectnew.BuildConfig
+import kotlinx.coroutines.newFixedThreadPoolContext
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -63,7 +64,7 @@ object ApiClient {
     @JvmStatic
     fun <T> createService(service: Class<T>?,context: Context): T {
         val client = OkHttpClient.Builder()
-            .addInterceptor(ChuckerInterceptor(context))
+//            .addInterceptor(ChuckerInterceptor.Builder(context).build())
             .build()
         val newClient = client.newBuilder().addInterceptor(Interceptor { chain ->
             var request = chain.request()
@@ -77,7 +78,7 @@ object ApiClient {
 
     fun <T> createServiceWithToken(service: Class<T>?,context: Context): T {
         val client = OkHttpClient.Builder()
-            .addInterceptor(ChuckerInterceptor(context))
+//            .addInterceptor(ChuckerInterceptor.Builder(context).build())
             .build()
         val pref = TokenManager.getInstance(context.getSharedPreferences("prefs", Context.MODE_PRIVATE))!!
         val newClient =
