@@ -147,12 +147,10 @@ class HomeFragment : Fragment(), HomeAdapter.OnItemClick {
             )
         )
     ).get(HomeViewModel::class.java)
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
     override fun itemClick(position: Int, id: Int, model: HomeModel) {
         val sharePref = SharePref(requireContext())
         sharePref.setLanguageId(id)

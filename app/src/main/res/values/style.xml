@@ -91,7 +91,15 @@
 
     <style name="basic_text_input_layout"
         parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="android:layout_marginStart">@dimen/_16sdp</item>
+        <item name="android:layout_marginEnd">@dimen/_16sdp</item>
+        <item name="android:layout_marginTop">@dimen/_8sdp</item>
+        <item name="android:layout_marginBottom">@dimen/_8sdp</item>
         <item name="android:textColorHint">@color/white</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/_50sdp</item>
+        <item name="boxCornerRadiusTopStart">@dimen/_50sdp</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/_50sdp</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/_50sdp</item>
         <item name="android:textColorHighlight">@color/white</item>
         <item name="hintTextColor">@color/white</item>
         <item name="errorTextColor">@color/color_red</item>
