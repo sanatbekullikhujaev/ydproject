@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/drawable_gradient_animation_list"
+    android:background="#5B08A4"
     tools:context=".ui.PlayerActivity">
     <!--978587008-->
     <RelativeLayout
@@ -78,7 +78,7 @@
             android:id="@+id/nested"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@id/btn_comment_chat"
+            android:layout_above="@id/rl_chat"
             android:layout_below="@id/video_view">
 
             <RelativeLayout
@@ -143,7 +143,9 @@
                         android:layout_alignParentStart="true"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_4sdp"
-                        app:srcCompat="@drawable/ic_pause_blue" />
+                        android:padding="@dimen/_4sdp"
+                        android:background="@drawable/background_audio"
+                        app:srcCompat="@drawable/ic_youtube" />
 
                     <TextView
                         android:id="@+id/tv_video_start_time"
@@ -193,12 +195,14 @@
 
                     <ImageView
                         android:id="@+id/img_audio_paly_and_pause"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
                         android:layout_alignParentStart="true"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_4sdp"
-                        app:srcCompat="@drawable/ic_play_red" />
+                        android:background="@drawable/background_video"
+                        android:padding="@dimen/_4sdp"
+                        app:srcCompat="@drawable/ic_headset" />
 
                     <TextView
                         android:id="@+id/tv_audio_start_time"
@@ -253,7 +257,7 @@
                         android:id="@+id/iv_pdf_doc"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        app:srcCompat="@drawable/ic_download_pdf" />
+                        app:srcCompat="@drawable/ic_pdf" />
 
                     <TextView
                         android:id="@+id/pdf_title"
@@ -265,22 +269,24 @@
                         android:maxLines="2"
                         android:textColor="@color/white"
                         android:textSize="16sp"
-                        tools:text="@string/unknown" />
+                        tools:text="1-dars mashqlar" />
                 </LinearLayout>
 
-                <Button
+                <TextView
                     android:id="@+id/btnTest"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/_30sdp"
                     android:layout_below="@+id/ll_video_pdf"
+                    android:layout_marginHorizontal="@dimen/_32sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/borderline_textview"
+                    android:gravity="center"
                     android:text="Test"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_8sdp"
-                    />
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14sdp" />
 
                 <TextView
                     android:id="@+id/tv_title"
-                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/btnTest"
@@ -289,7 +295,8 @@
                     android:layout_marginEnd="@dimen/_16sdp"
                     android:gravity="center"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/text_16sp" />
+                    android:textSize="@dimen/text_16sp"
+                    android:visibility="gone" />
 
                 <TextView
                     android:id="@+id/tv_word"
@@ -303,29 +310,38 @@
 
         </androidx.core.widget.NestedScrollView>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_comment_chat"
+        <RelativeLayout
+            android:id="@+id/rl_chat"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_margin="@dimen/_16sdp"
-            android:layout_toLeftOf="@id/img_telegram"
-            android:backgroundTint="#F44336"
-            android:text="Komentariya chat"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_18sp"
-            app:cornerRadius="@dimen/_12sdp" />
+            android:background="#001681">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/img_telegram"
-            android:layout_width="@dimen/_30sdp"
-            android:layout_height="@dimen/_30sdp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="@dimen/_2sdp"
-            android:layout_marginEnd="@dimen/_8sdp"
-            android:layout_alignTop="@id/btn_comment_chat"
-            app:srcCompat="@drawable/telegram" />
+            <TextView
+                android:id="@+id/btn_comment_chat"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:layout_toLeftOf="@id/img_telegram"
+                android:background="@drawable/borderline_button"
+                android:gravity="center"
+                android:text="Komentariya chat"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_18sp"
+                app:cornerRadius="@dimen/_12sdp" />
 
+            <ImageView
+                android:id="@+id/img_telegram"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_alignParentEnd="true"
+                android:padding="@dimen/_6sdp"
+                android:layout_centerVertical="true"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:background="@drawable/background_telegram"
+                app:srcCompat="@drawable/ic_telegram" />
+        </RelativeLayout>
 
 
     </RelativeLayout>

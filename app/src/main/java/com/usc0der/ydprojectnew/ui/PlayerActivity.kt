@@ -346,22 +346,26 @@ class PlayerActivity : AppCompatActivity(), CommentChatFragment.OnItemClick,
     private fun audioMediaPlayerPlay() = with(binding) {
         videoPlayerPause()
         audioMediaPlayer.start()
-        imgAudioPalyAndPause.setImageResource(R.drawable.ic_pause_red)
+        imgAudioPalyAndPause.setImageResource(R.drawable.exo_icon_pause)
+        imgAudioPalyAndPause.setBackgroundResource(R.drawable.background_audio)
     }
 
     private fun audioMediaPlayerPause() = with(binding) {
         audioMediaPlayer.pause()
-        imgAudioPalyAndPause.setImageResource(R.drawable.ic_play_red)
+        imgAudioPalyAndPause.setImageResource(R.drawable.ic_headset)
+        imgAudioPalyAndPause.setBackgroundResource(R.drawable.background_audio)
     }
 
     private fun videoPlayerPlay() = with(binding) {
-        imgVideoPlayAndPause.setImageResource(R.drawable.ic_pause_blue)
+        imgVideoPlayAndPause.setImageResource(R.drawable.exo_icon_pause)
+        imgVideoPlayAndPause.setBackgroundResource(R.drawable.background_video)
         mediaPlayer.startPlayer()
         audioMediaPlayerPause()
     }
 
     private fun videoPlayerPause() = with(binding) {
-        imgVideoPlayAndPause.setImageResource(R.drawable.ic_play_blue)
+        imgVideoPlayAndPause.setImageResource(R.drawable.ic_youtube)
+        imgVideoPlayAndPause.setBackgroundResource(R.drawable.background_video)
         mediaPlayer.pausePlayer()
     }
 

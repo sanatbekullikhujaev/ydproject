@@ -21,20 +21,45 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
+        android:layout_margin="@dimen/_4sdp"
         android:layout_width="match_parent"
+        android:layout_above="@id/view"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="4dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
         tools:listitem="@layout/item_home">
 
     </androidx.recyclerview.widget.RecyclerView>
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="@dimen/_2sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="#541685" />
+
+    <ImageView
+        android:id="@+id/img_telegram"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@id/view"
+        android:background="#44499B"
+        android:padding="@dimen/_12sdp"
+        android:src="@drawable/ic_telegram">
+
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/img_call"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/view"
+        android:background="#44499B"
+        android:padding="@dimen/_12sdp"
+        android:src="@drawable/ic_call">
+
+    </ImageView>
 
 </RelativeLayout>
