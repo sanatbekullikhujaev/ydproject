@@ -39,6 +39,7 @@
     <!-- 3rd Gradient color -->
     <color name="colorGreen_A400">#00E676</color>
     <color name="colorGreen_900">#1B5E20</color>
+    <color name="green">#1E9527</color>
     <!-- ./ 3rd Gradient color -->
 
     <!-- 4th Gradient color -->
@@ -58,6 +59,7 @@
     <color name="colorToolBar">#9e00c5</color>
     <color name="color_blue">#3369FF</color>
     <color name="color_red">#FA4056</color>
+    <color name="red">#F8021F</color>
     <color name="color_item_shape">#070D15</color>
     <color name="ic_launcher_background">#131313</color>
 

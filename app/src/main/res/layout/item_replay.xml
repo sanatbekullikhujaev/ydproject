@@ -3,54 +3,71 @@
     android:id="@+id/rl"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#001682"
     android:orientation="vertical">
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img_avatar"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_margin="@dimen/_8sdp"
+        android:src="@drawable/yangidavrsrc" />
 
     <TextView
-        android:id="@+id/tvName"
+        android:id="@+id/tv_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="@dimen/_8sdp"
-        android:layout_marginTop="@dimen/_16sdp"
-        android:layout_marginEnd="@dimen/_8sdp"
-        android:layout_toLeftOf="@id/tvdate"
-        android:text="Ullixo'jayev San'atbek"
-        android:textColor="@color/black" />
-
+        android:layout_alignTop="@id/img_avatar"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:layout_toRightOf="@id/img_avatar"
+        android:fontFamily="@font/roboto_bold"
+        android:text="usc0der"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14sdp" />
     <TextView
-        android:id="@+id/tvdate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/tv_date"
         android:layout_alignParentEnd="true"
-        android:layout_marginLeft="@dimen/_12sdp"
-        android:layout_marginTop="@dimen/_16sdp"
-        android:layout_marginEnd="@dimen/_8sdp"
-        android:textColor="#373737"
-        android:layout_marginBottom="@dimen/_8sdp"
-        android:text="26.02.2021 14:01"
-        />
-
-    <TextView
-        android:id="@+id/tvMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvName"
-        android:layout_alignParentStart="true"
+        android:layout_alignTop="@id/img_avatar"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="24.06.2022 23:14"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_12sdp" />
+
+
+    <TextView
+        android:id="@+id/tv_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_username"
+        android:layout_toLeftOf="@id/img_dropdown"
+        android:layout_toRightOf="@id/img_avatar"
+        android:background="@drawable/background_comment"
+        android:padding="@dimen/_4sdp"
+        android:text="Loro ipsum dolor sit amet,\nLoro ipsum dolor sit amet,"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14sdp" />
+
+
+    <ImageView
+        android:id="@+id/img_dropdown"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_alignTop="@id/tv_message"
         android:layout_alignParentEnd="true"
-        android:layout_gravity="center"
-        android:layout_marginStart="@dimen/_8sdp"
-        android:textColor="#373737"
-        android:layout_marginTop="@dimen/_25sdp"
-        android:layout_marginEnd="@dimen/_50sdp"
-        android:layout_marginBottom="@dimen/_8sdp"
-        android:text="Assalomu laykum bu video darsdan ko'p narsalarni o'rganib oldim juda yaxsh ekan"
-        />
+        android:layout_marginHorizontal="@dimen/_8sdp"
+        android:src="@drawable/ic_keyboard_arrow_down" />
 
     <View
+        android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_1sdp"
-        android:layout_marginTop="@dimen/_16sdp"
-        android:layout_below="@id/tvMessage"
-        android:foreground="#AFAFAF" />
+        android:layout_below="@id/tv_message"
+        android:layout_alignStart="@id/img_avatar"
+        android:layout_alignEnd="@id/img_dropdown"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:foreground="#ccc" />
 </RelativeLayout>

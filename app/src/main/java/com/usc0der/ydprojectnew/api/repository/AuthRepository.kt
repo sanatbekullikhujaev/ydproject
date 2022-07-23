@@ -57,4 +57,5 @@ class AuthRepository(private val apiHelper: ApiHelper) {
     } catch (e: Exception) {
         UIState.Error(e.localizedMessage ?: "Unknown error")
     }
+
 }

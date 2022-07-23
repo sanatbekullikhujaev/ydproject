@@ -35,11 +35,11 @@ class CommentAdapter(val list: ArrayList<CommentObj>, var onItemClick: OnItemCli
             }
             true
         }
-        holder.binding.tvAnswerCount.text = list[position].answer_count + " ta fikr "
+        holder.binding.tvCommentCount.text = list[position].answer_count + " ta fikr "
         holder.binding.tvMessage.text = list[position].comment.body
-        holder.binding.tvdate.text =
+        holder.binding.tvDate.text =
             list[position].comment.created_time.substring(0, 16)
-        holder.binding.tvName.text = list[position].comment.username
+        holder.binding.tvUsername.text = list[position].comment.username
 
     }
 

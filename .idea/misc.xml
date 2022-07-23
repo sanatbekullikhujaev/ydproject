@@ -8,22 +8,31 @@
         <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/drawable/background_comment.xml" value="0.1825" />
         <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/drawable/background_edittext.xml" value="0.1825" />
         <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/drawable/background_telegram.xml" value="0.1825" />
+        <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/drawable/background_test_green.xml" value="0.1825" />
+        <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/drawable/background_test_red.xml" value="0.1825" />
+        <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/drawable/background_transparent.xml" value="0.1825" />
         <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/drawable/background_tv_color_black.xml" value="0.1245" />
         <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/drawable/background_video.xml" value="0.1825" />
         <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/drawable/border_line_subject.xml" value="0.1825" />
         <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/drawable/borderline_button.xml" value="0.1825" />
         <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/drawable/borderline_textview.xml" value="0.1825" />
         <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/drawable/card_border_line.xml" value="0.12" />
+        <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/drawable/default_option_border_bg.xml" value="0.1825" />
+        <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/drawable/drawable_gradient_animation_list.xml" value="0.1825" />
+        <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/drawable/drawable_purple_gradient.xml" value="0.1825" />
         <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/drawable/ic_background.xml" value="0.12" />
         <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/drawable/ic_baseline_send_24.xml" value="0.1825" />
+        <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/drawable/ic_quiz.xml" value="0.1825" />
+        <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/drawable/ic_timer.xml" value="0.1825" />
         <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/drawable/ic_youtbe.xml" value="0.1825" />
         <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/drawable/rectangle_9.xml" value="0.12" />
         <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/layout/activity_media.xml" value="0.2" />
         <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/layout/activity_media_video.xml" value="0.25" />
         <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/layout/activity_player.xml" value="0.3710144927536232" />
-        <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/layout/activity_quiz_questions.xml" value="0.2" />
+        <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/layout/activity_quiz_questions.xml" value="0.33" />
         <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/layout/activity_registration.xml" value="0.2" />
+        <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/layout/activity_settings.xml" value="0.1" />
         <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/layout/content_main.xml" value="0.19692307692307692" />
         <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/layout/fragment_comment_chat.xml" value="0.25" />
         <entry key="..\:/Android Studio proekt/YDProjectNew/app/src/main/res/layout/fragment_home.xml" value="0.2" />

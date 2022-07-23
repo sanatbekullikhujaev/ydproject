@@ -62,11 +62,6 @@ class App : Application() {
             .apply()
     }
 
-    fun getVideoUrl(): String? = getSharedPreferences(Constants.MY_PREFS_NAME, MODE_PRIVATE)
-        .getString(Constants.VIDEO_URL_CONST, null)
-
-    fun getDate(): String? = getSharedPreferences(Constants.MY_PREFS_NAME, MODE_PRIVATE)
-        .getString(Constants.DATE, "")
 
     fun getUserLogin(): String? = getSharedPreferences(Constants.MY_PREFS_NAME, MODE_PRIVATE)
         .getString(Constants.USER_LOGIN, null)

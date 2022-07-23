@@ -23,8 +23,8 @@ class ReplayAdapter(val list: ArrayList<ReplayObj>, val onItemClick: OnItemClick
             )
         }
         holder.binding.tvMessage.text = list[list.size - 1 - position].answer.body
-        holder.binding.tvName.text = list[list.size - 1 - position].answer.username
-        holder.binding.tvdate.text =
+        holder.binding.tvUsername.text = list[list.size - 1 - position].answer.username
+        holder.binding.tvDate.text =
             list[list.size - 1 - position].answer.created_date.substring(0,16)
     }
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
     android:id="@+id/root_layout"
-    android:background="@drawable/border_line_subject"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/border_line_subject">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_image"
@@ -15,11 +15,25 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <TextView
+                android:id="@+id/tv_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/img"
+                android:text="25:35"
+                android:paddingVertical="@dimen/_2sdp"
+                android:paddingHorizontal="@dimen/_4sdp"
+                android:textColor="@color/white"
+                android:elevation="@dimen/_20sdp"
+                android:layout_margin="@dimen/_16sdp"
+                android:background="@drawable/background_transparent"
+                android:layout_alignParentEnd="true" />
+
             <ImageView
                 android:id="@+id/img"
-                android:scaleType="centerCrop"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:scaleType="centerCrop"
                 android:src="@drawable/yangidavrsrc" />
 
         </RelativeLayout>
@@ -47,7 +61,7 @@
         android:layout_alignStart="@id/card_image"
         android:layout_marginStart="@dimen/_4sdp"
         android:layout_marginEnd="@dimen/_16sdp"
-        android:textColor="@color/black"
-        android:text="4 mln marta ko'rildi" />
+        android:text="4 mln marta ko'rildi"
+        android:textColor="@color/black" />
 
 </RelativeLayout>

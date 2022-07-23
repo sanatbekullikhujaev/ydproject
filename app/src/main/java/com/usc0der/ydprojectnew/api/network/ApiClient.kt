@@ -1,9 +1,9 @@
 package com.usc0der.ydprojectnew.api.network
 
 import android.content.Context
+import com.chuckerteam.chucker.BuildConfig
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.google.gson.GsonBuilder
-import com.usc0der.ydprojectnew.BuildConfig
 import kotlinx.coroutines.newFixedThreadPoolContext
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient

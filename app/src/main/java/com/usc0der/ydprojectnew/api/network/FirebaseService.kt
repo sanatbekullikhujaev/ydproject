@@ -1,6 +1,5 @@
 package com.usc0der.ydprojectnew.api.network
 
-import android.app.Application
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -11,17 +10,15 @@ import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.media.RingtoneManager
 import android.os.Build
-import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
-import com.usc0der.ydprojectnew.MainActivity
+import com.usc0der.ydprojectnew.api.di.MyHiltApp
 import com.usc0der.ydprojectnew.R
 import com.usc0der.ydprojectnew.SplashActivity
 import com.usc0der.ydprojectnew.app.App
 import com.usc0der.ydprojectnew.utils.SharedPref
-import org.greenrobot.eventbus.EventBus
 import kotlin.random.Random
 
 
@@ -30,14 +27,11 @@ private const val CHANNEL_NAME = "channelName"
 
 class FirebaseService : FirebaseMessagingService() {
     private lateinit var pref: SharedPref
-
-
     override fun onNewToken(newToken: String) {
         super.onNewToken(newToken)
-        pref = SharedPref(App.mApp)
+        pref = SharedPref(MyHiltApp().baseContext)
         pref.device_token = newToken
     }
-
     override fun onMessageReceived(message: RemoteMessage) {
         super.onMessageReceived(message)
         pref = SharedPref(App.mApp)

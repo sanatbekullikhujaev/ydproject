@@ -37,8 +37,7 @@ class VideosAndAudiosAdapter(
         holder.binding.tvTitle.text = list[position].title.toString()
 //        holder.binding.tvWord.text = list[position].content.toString()
         holder.binding.tvView.text = list[position].views.toString() + " marta ko'rildi"
-        holder.binding.tvVideoDuration.text = list[position].video_duration
-
+        holder.binding.tvDuration.text = list[position].video_duration
 
         holder.binding.rootLayout.setOnClickListener {
             onItemClick.itemClick(position, list[position].id)
